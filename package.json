@@ -1,0 +1,81 @@
+{
+  "name": "sina-website",
+  "description": "Sina Khodaveisi Portfolio",
+  "version": "1.0.0",
+  "author": "Sina Khodaveisi",
+  "dependencies": {
+    "@fontsource/inter": "^4.0.0",
+    "@mdx-js/mdx": "^2.3.0",
+    "@mdx-js/react": "^2.3.0",
+    "babel-plugin-styled-components": "^2.1.4",
+    "framer-motion": "^10.16.4",
+    "gatsby": "^5.12.4",
+    "gatsby-image": "^3.11.0",
+    "gatsby-plugin-manifest": "^5.12.0",
+    "gatsby-plugin-mdx": "^5.12.0",
+    "gatsby-plugin-offline": "^6.12.0",
+    "gatsby-plugin-robots-txt": "^1.5.3",
+    "gatsby-plugin-sharp": "^5.12.0",
+    "gatsby-plugin-sitemap": "^6.12.0",
+    "gatsby-plugin-styled-components": "^6.12.0",
+    "gatsby-remark-images": "^7.12.0",
+    "gatsby-source-filesystem": "^5.12.0",
+    "gatsby-transformer-sharp": "^5.12.0",
+    "gsap": "^3.12.2",
+    "intersection-observer": "^0.12.2",
+    "prop-types": "^15.7.2",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-scrollmagic": "^2.3.0",
+    "react-visibility-sensor": "^5.1.1",
+    "scrollmagic": "^2.0.8",
+    "scrollmagic-plugin-gsap": "^1.0.4",
+    "smooth-scroll": "^16.1.3",
+    "styled-components": "^6.0.7",
+    "styled-modern-normalize": "^0.2.0",
+    "tiny-skeleton-loader-react": "^1.1.4"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.12.10",
+    "@babel/eslint-parser": "^7.12.1",
+    "@babel/eslint-plugin": "^7.12.1",
+    "@babel/plugin-proposal-class-properties": "^7.12.1",
+    "@babel/plugin-transform-runtime": "^7.12.10",
+    "@babel/preset-react": "^7.12.10",
+    "eslint": "^8.48.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-import-resolver-alias": "^1.1.2",
+    "eslint-loader": "^4.0.2",
+    "eslint-plugin-mdx": "^2.2.0",
+    "eslint-plugin-prettier": "^5.0.0",
+    "eslint-plugin-react": "^7.21.5",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "gatsby-plugin-eslint": "^4.0.4",
+    "husky": "^8.0.3",
+    "lint-staged": "^14.0.1",
+    "prettier": "^3.0.3"
+  },
+  "keywords": [
+    "Portfolio",
+    "Sina Khodaveisi"
+  ],
+  "license": "MIT",
+  "scripts": {
+    "build": "gatsby build",
+    "develop": "gatsby develop --port 9000",
+    "format": "prettier --write \"**/*.+(js|jsx|json|yml|yaml|css|less|scss|ts|tsx|graphql|md|mdx)\"",
+    "lint": "eslint .",
+    "start": "npm run develop",
+    "serve": "gatsby serve",
+    "clean": "gatsby clean"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sinasun/sina-website"
+  }
+}
