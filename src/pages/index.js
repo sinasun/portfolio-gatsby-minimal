@@ -3,13 +3,13 @@ import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 
 import GlobalStateProvider from '@context/provider';
-import { Layout, SEO, Hero, About } from '@components';
+import { Layout, SEO, Hero, About, Study } from '@components';
 
 import { seoTitleSuffix } from '@config';
 
 const IndexPage = ({ data }) => {
 	const { frontmatter } = data.index.edges[0].node;
-	const { seoTitle, useSeoTitleSuffix, useSplashScreen } = frontmatter;
+	const { useSplashScreen } = frontmatter;
 
 	const globalState = {
 		isIntroDone: useSplashScreen ? false : true
@@ -20,6 +20,7 @@ const IndexPage = ({ data }) => {
 			<Layout>
 				<Hero content={data.hero.edges} />
 				<About content={data.about.edges} />
+				<Study content={data.study.edges} />
 			</Layout>
 		</GlobalStateProvider>
 	);
@@ -81,6 +82,34 @@ export const pageQuery = graphql`
 							position
 							dates
 							detail
+						}
+					}
+				}
+			}
+		}
+		study: allMdx(
+			filter: {
+				internal: { contentFilePath: { regex: "/index/study/" } }
+			}
+		) {
+			edges {
+				node {
+					body
+					frontmatter {
+						studyTitle
+						studyDetail
+						educationTitle
+						educations {
+							school
+							field
+							dates
+							detail
+						}
+						awardsTitle
+						awards {
+							name
+							organization
+							dates
 						}
 					}
 				}
