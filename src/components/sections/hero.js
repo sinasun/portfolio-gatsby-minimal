@@ -43,17 +43,24 @@ const StyledContentWrapper = styled(ContentWrapper)`
 			line-height: 28px;
 		}
 
-		.button__div {
+		.button-div {
 			width: 100%;
 			margin-top: 2rem;
 			display: flex;
 			flex-direction: row;
 			align-items: center;
+			@media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
+				flex-direction: column;
+			}
 		}
 
 		.download {
 			margin-left: auto;
 			margin-right: 32px;
+			@media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
+				margin-right: auto;
+				width: 100%;
+			}
 			align-items: center;
 			background: #f5f5fa;
 			border: 0;
@@ -85,6 +92,11 @@ const StyledContentWrapper = styled(ContentWrapper)`
 		.contact {
 			margin-left: 32px;
 			margin-right: auto;
+			@media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
+				margin-left: auto;
+				margin-top: 24px;
+				width: 100%;
+			}
 			align-items: center;
 			background: #f5f5fa;
 			border: 0;
@@ -156,7 +168,7 @@ const Hero = ({ content }) => {
 					<div className="description">{body}</div>
 				</motion.div>
 				<motion.div initial={{ opacity: 0, x: 20 }} animate={sControls}>
-					<div className="button__div">
+					<div className="button-div">
 						<button className="download" role="button">
 							Download Resume
 						</button>
