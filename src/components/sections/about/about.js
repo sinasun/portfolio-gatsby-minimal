@@ -6,6 +6,7 @@ import { Controller, Scene } from 'react-scrollmagic';
 import ContentWrapper from '@styles/contentWrapper';
 import Background from './background';
 import WorkExperiences from './work';
+import { detectMobileAndTablet } from '@utils';
 
 const StyledSection = styled.section`
 	width: 100%;
@@ -17,12 +18,21 @@ const StyledContentWrapper = styled(ContentWrapper)`
 		display: flex;
 		flex-direction: row;
 		width: 100%;
+		@media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
+			flex-direction: column;
+		}
 	}
 	#background-section {
 		width: 30vh !important;
+		@media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
+			width: 100% !important;
+		}
 	}
 	.work-section {
 		margin-left: 24px;
+		@media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
+			margin-left: 0;
+		}
 		width: 100%;
 		height: min-content;
 	}
@@ -35,6 +45,9 @@ const StyledContentWrapper = styled(ContentWrapper)`
 		border-radius: 8px;
 		display: flex;
 		flex-direction: row;
+		@media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
+			flex-direction: column;
+		}
 	}
 	.work-div:hover {
 		background: rgba(255, 255, 255, 0.2);
@@ -43,6 +56,9 @@ const StyledContentWrapper = styled(ContentWrapper)`
 		display: flex;
 		flex-direction: column;
 		margin-left: 12px;
+		@media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
+			margin-left: 0px;
+		}
 	}
 	.work-div > p {
 		white-space: nowrap;
@@ -65,6 +81,9 @@ const StyledContentWrapper = styled(ContentWrapper)`
 
 const About = ({ content }) => {
 	const { frontmatter } = content[0].node;
+	const windowWidth = window.innerWidth;
+
+	const isMobileOrTablet = detectMobileAndTablet(windowWidth);
 
 	const workExperiencesRef = useRef(null);
 
@@ -89,19 +108,27 @@ const About = ({ content }) => {
 		<StyledSection id="about">
 			<StyledContentWrapper>
 				<Controller>
-					<Scene
-						duration={duration}
-						pin="#background-section"
-						triggerElement="#about"
-						offset={0}
-					>
-						<div>
-							<Background
-								setHeightFromChild={setHeightFromChild}
-								frontmatter={frontmatter}
-							/>
-						</div>
-					</Scene>
+					{isMobileOrTablet ? (
+						<Background
+							frontmatter={frontmatter}
+							setHeightFromChild={setHeightFromChild}
+						/>
+					) : (
+						<Scene
+							duration={duration}
+							pin="#background-section"
+							triggerElement="#about"
+							offset={0}
+						>
+							<div>
+								<Background
+									setHeightFromChild={setHeightFromChild}
+									frontmatter={frontmatter}
+								/>
+							</div>
+						</Scene>
+					)}
+
 					<div className="work-section" ref={workExperiencesRef}>
 						<WorkExperiences frontmatter={frontmatter} />
 					</div>
