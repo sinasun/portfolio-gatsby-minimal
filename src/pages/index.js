@@ -6,6 +6,7 @@ import GlobalStateProvider from '@context/provider';
 import { Layout, SEO, Hero, About, Study } from '@components';
 
 import { seoTitleSuffix } from '@config';
+import Projects from '../components/sections/projects.js/projects';
 
 const IndexPage = ({ data }) => {
 	const { frontmatter } = data.index.edges[0].node;
@@ -21,6 +22,7 @@ const IndexPage = ({ data }) => {
 				<Hero content={data.hero.edges} />
 				<About content={data.about.edges} />
 				<Study content={data.study.edges} />
+				<Projects content={data.project.edges} />
 			</Layout>
 		</GlobalStateProvider>
 	);
@@ -110,6 +112,35 @@ export const pageQuery = graphql`
 							name
 							organization
 							dates
+						}
+					}
+				}
+			}
+		}
+		project: allMdx(
+			filter: {
+				internal: { contentFilePath: { regex: "/index/project/" } }
+			}
+		) {
+			edges {
+				node {
+					body
+					frontmatter {
+						projectTitle
+
+						projects {
+							title
+							link
+							github
+							description
+							skills
+							image {
+								childImageSharp {
+									fluid(maxWidth: 400, quality: 90) {
+										...GatsbyImageSharpFluid
+									}
+								}
+							}
 						}
 					}
 				}

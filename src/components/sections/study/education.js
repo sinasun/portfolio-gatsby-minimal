@@ -10,7 +10,7 @@ const Education = ({ frontmatter }) => {
 						<p>{education.dates}</p>
 						<div className="detail-div">
 							<h5>
-								{education.field} at {education.school}
+								{education.field} - {education.school}
 							</h5>
 							<p>{education.detail}</p>
 						</div>

@@ -10,8 +10,8 @@ const External = ({ color }) => {
 			y="0px"
 			role="img"
 			fill={color}
-			width="194.818px"
-			height="194.818px"
+			width="24px"
+			height="24px"
 		>
 			<g>
 				<path
