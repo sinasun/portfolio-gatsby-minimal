@@ -18,6 +18,9 @@ const StyledContentWrapper = styled(ContentWrapper)`
 		flex-direction: column;
 		width: 100%;
 	}
+	h3 {
+		margin-block-end: 0em;
+	}
 	.project-div {
 		background: rgba(255, 255, 255, 0.08);
 		transition-duration: 300ms;
@@ -27,11 +30,20 @@ const StyledContentWrapper = styled(ContentWrapper)`
 		display: flex;
 		flex-direction: row;
 		border-radius: 8px;
+		@media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
+			padding: 3rem 1.5rem;
+
+			flex-direction: column;
+		}
 	}
 	.project-div > div {
 		display: flex;
 		flex-direction: column;
 		margin-left: 32px;
+		@media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
+			margin-left: 0;
+			width: 100%;
+		}
 		width: 50%;
 	}
 	.project-div > div > h4 {
@@ -60,6 +72,9 @@ const StyledContentWrapper = styled(ContentWrapper)`
 	}
 	.skills {
 		font-weight: 700;
+	}
+	.screenshot {
+		border-radius: 8px;
 	}
 `;
 
