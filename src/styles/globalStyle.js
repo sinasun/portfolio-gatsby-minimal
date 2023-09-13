@@ -81,7 +81,9 @@ const GlobalStyle = createGlobalStyle`
         font-size: 1.75rem;
         line-height: 2.25rem;
         color: ${({ theme }) => theme.colors.primary};
-        margin-bottom: 3rem;
+        
+		margin-block-end: 0em;
+	
     }
 
     h4 {
@@ -90,12 +92,23 @@ const GlobalStyle = createGlobalStyle`
         font-weight: 400;
     }
 
+    h5 {
+        line-height: 2rem;
+        font-size: 18px;
+		margin-block-start: 1rem;
+		margin-block-end: 0rem;
+		font-weight: 700;
+    }
+
     hr {
         margin: 3rem auto;
         border-width: .05rem;
         color: ${({ theme }) => theme.colors.tertiary};
         opacity: 0.1;
       }
+    p {
+        line-height: 26px;
+    }
 
 `;
 

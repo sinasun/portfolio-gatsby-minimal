@@ -18,9 +18,6 @@ const StyledContentWrapper = styled(ContentWrapper)`
 		flex-direction: column;
 		width: 100%;
 	}
-	h3 {
-		margin-block-end: 0em;
-	}
 	.project-div {
 		background: rgba(255, 255, 255, 0.08);
 		transition-duration: 300ms;

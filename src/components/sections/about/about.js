@@ -37,6 +37,7 @@ const StyledContentWrapper = styled(ContentWrapper)`
 		height: min-content;
 	}
 	.work-div {
+		cursor: default;
 		background: rgba(255, 255, 255, 0.08);
 		transition-duration: 300ms;
 		padding: 1rem 1.5rem;
@@ -65,12 +66,7 @@ const StyledContentWrapper = styled(ContentWrapper)`
 		font-size: 12px;
 		margin-block-start: 1rem;
 	}
-	.detail-div > h5 {
-		font-size: 18px;
-		margin-block-start: 1rem;
-		margin-block-end: 0rem;
-		font-weight: 700;
-	}
+
 	.detail-div > p {
 		font-size: 15px;
 	}
