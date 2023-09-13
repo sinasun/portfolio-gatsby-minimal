@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import styled, { ThemeProvider } from 'styled-components';
 
-import "@fontsource/inter"; 
+import '@fontsource/inter';
 
 import { theme } from '@styles/theme';
 import Context from '@context';
