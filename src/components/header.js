@@ -46,6 +46,7 @@ const StyledBurger = styled.button`
 	}
 
 	div {
+		background-color: #ffffff;
 		width: 2rem;
 		height: 0.25rem;
 		border-radius: 0.625rem;
@@ -99,6 +100,9 @@ const Header = () => {
 	if (detectMobileAndTablet(windowWidth)) {
 		navigation = (
 			<>
+				<Link to="/" aria-label="home">
+					<Logo color="primary" size="1.25rem" />
+				</Link>
 				<StyledBurger
 					aria-controls="sidebar"
 					open={open}
@@ -112,17 +116,19 @@ const Header = () => {
 			</>
 		);
 	} else {
-		navigation = <Navbar />;
+		navigation = (
+			<>
+				<Link to="/" aria-label="home">
+					<Logo color="primary" size="2rem" />
+				</Link>
+				<Navbar />
+			</>
+		);
 	}
 
 	return (
 		<StyledHeader initial={{ opacity: 0, y: -10 }} animate={controls}>
-			<StyledContentWrapper>
-				<Link to="/" aria-label="home">
-					<Logo color="primary" size="2rem" />
-				</Link>
-				{navigation}
-			</StyledContentWrapper>
+			<StyledContentWrapper>{navigation}</StyledContentWrapper>
 		</StyledHeader>
 	);
 };
