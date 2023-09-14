@@ -65,7 +65,7 @@ const StyledContentWrapper = styled(ContentWrapper)`
 			background: #f5f5fa;
 			border: 0;
 			border-radius: 32px;
-			box-shadow: 0px 0px 300px 0 #fff;
+			box-shadow: 0px 0px 400px 0 #fff;
 			box-sizing: border-box;
 			cursor: pointer;
 			display: flex;

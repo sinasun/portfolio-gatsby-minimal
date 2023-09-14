@@ -11,7 +11,7 @@ const StyledBackdrop = styled.div`
 	height: 100%;
 	top: 0;
 	left: 0;
-	background: rgba(0, 0, 0, 0.3);
+	background: rgba(0, 0, 0, 0.8);
 	z-index: 9;
 	transition: all 0.3s ease-in-out;
 	display: ${({ open }) => (open ? 'block' : 'none')};
