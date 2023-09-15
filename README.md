@@ -31,9 +31,27 @@ You can access the live website at [https://sina.khodaveisi.com](https://sina.kh
 
 1. Clone the repository.
 
+```bash
+git clone 
+```
+
 2. Navigate to the project directory.
 
+```bash
+cd portfolio-gatsby-minimal 
+```
+
 3. Install dependencies.
+
+```bash
+npm install --force
+```
+
+4. Run the code.
+
+```bash
+gatsby develop
+```
 
 ## Usage
 
