@@ -24,7 +24,7 @@ const StyledContentWrapper = styled(ContentWrapper)`
 		}
 	}
 	#study-about-section {
-		width: 30vh !important;
+		width: 400px !important;
 		@media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
 			width: 100% !important;
 		}
