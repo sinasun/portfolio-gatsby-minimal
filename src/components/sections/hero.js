@@ -2,9 +2,10 @@ import React, { useEffect, useContext } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { motion, useAnimation } from 'framer-motion';
-
+import Social from '../social';
 import Context from '@context';
 import ContentWrapper from '@styles/contentWrapper';
+import { navLinks, socialMedia } from '@config';
 
 const StyledSection = styled.section`
 	width: 100%;
@@ -55,6 +56,7 @@ const StyledContentWrapper = styled(ContentWrapper)`
 		}
 
 		.download {
+			color: #121212;
 			margin-left: auto;
 			margin-right: 32px;
 			@media (max-width: ${({ theme }) => theme.breakpoints.sm}) {
@@ -125,12 +127,22 @@ const StyledContentWrapper = styled(ContentWrapper)`
 		.contact:hover {
 			background: rgba(255, 255, 255, 0.2);
 		}
+		.social-div {
+			display: flex;
+			flex-direction: row;
+			margin-top: 32px;
+		}
 	}
 `;
 
 const Hero = ({ content }) => {
 	const { frontmatter, body } = content[0].node;
 	const { isIntroDone } = useContext(Context).state;
+	const { button } = navLinks;
+	const mailObject = socialMedia.find((item) => item.name === 'Mail');
+
+	// Extract the email
+	let email = mailObject.url;
 
 	// Controls to orchestrate animations of greetings, social profiles,
 	const gControls = useAnimation();
@@ -169,13 +181,31 @@ const Hero = ({ content }) => {
 				</motion.div>
 				<motion.div initial={{ opacity: 0, x: 20 }} animate={sControls}>
 					<div className="button-div">
-						<button className="download" role="button">
-							Download Resume
-						</button>
-						<button className="contact" role="button">
+						{button.useFileName ? (
+							<a
+								className="download"
+								href={`/${button.fileName}`}
+								target="_blank"
+								rel="noopener noreferrer"
+							>
+								{button.name}
+							</a>
+						) : (
+							<Link className="download" to={button.url}>
+								{button.name}
+							</Link>
+						)}
+						<a className="contact" href={email} role="button">
 							Email Me!
-						</button>
+						</a>
 					</div>
+				</motion.div>
+				<motion.div
+					initial={{ opacity: 0, x: 20 }}
+					animate={sControls}
+					className="social-div"
+				>
+					<Social withIcon />
 				</motion.div>
 			</StyledContentWrapper>
 		</StyledSection>

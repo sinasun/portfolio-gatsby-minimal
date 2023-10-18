@@ -63,7 +63,7 @@ module.exports = {
 		],
 		button: {
 			useFileName: true,
-			name: 'Resume',
+			name: 'Download Resume',
 			fileName: 'Sina_Khodaveisi_Resume.pdf',
 			url: '' // if useFileName=false, you can set an anchor link here and use the button for navigational purposes
 		}

@@ -1,19 +1,21 @@
 import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import { theme } from '@styles/theme';
 
 import Icon from './icons';
 import { socialMedia } from '@config';
 
 const StyledSocialWrapper = styled.div`
+	width: max-content;
+	margin-left: auto;
+	margin-right: auto;
 	display: grid;
 	/* Calculate columns, depending on how many profiles there are */
 	grid-template-columns: repeat(${({ itemcount }) => itemcount + 1}, auto);
 	justify-content: start;
 	justify-items: start;
 
-	margin-left: -2.5rem;
-	margin-right: -2.5rem;
 	padding-left: 2.5rem;
 	padding-right: 2.5rem;
 
@@ -25,12 +27,6 @@ const StyledSocialWrapper = styled.div`
 	}
 	@media (min-width: ${({ theme }) => theme.breakpoints.lg}) {
 		overflow: visible;
-	}
-
-	/* Workaround: https://stackoverflow.com/questions/38993170/last-margin-padding-collapsing-in-flexbox-grid-layout */
-	&::after {
-		content: '';
-		width: 2.5rem;
 	}
 
 	/* Show scrollbar if desktop and wrapper width > viewport width */
@@ -92,7 +88,6 @@ const Social = ({ width, padding, fontSize, fontWeight, withIcon }) => {
 						{withIcon ? (
 							<Icon name={name} color={theme.colors.primary} />
 						) : null}{' '}
-						{name}
 					</StyledSocialProfile>
 				);
 			})}
